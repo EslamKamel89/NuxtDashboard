@@ -7,7 +7,7 @@ type NavItem = {
 const items = ref<NavItem[]>([
   {
     title: "Overview",
-    path: "/overview",
+    path: "/",
     icon: "material-symbols-light:dashboard-outline",
   },
   {
