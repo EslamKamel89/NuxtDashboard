@@ -120,4 +120,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  h1 {
+    @apply text-2xl font-bold;
+  }
+  p {
+    @apply text-neutral-500;
+  }
 }

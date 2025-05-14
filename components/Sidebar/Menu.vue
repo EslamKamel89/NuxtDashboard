@@ -39,7 +39,7 @@ const items = ref<NavItem[]>([
       href="/"
     >
       <SharedLogo />
-      <p class="font-bold">Nuxt Dashboard</p>
+      <p class="font-bold text-black">Nuxt Dashboard</p>
     </NuxtLink>
     <div class="grow px-4">
       <div class="grid gap-4">

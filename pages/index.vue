@@ -2,12 +2,15 @@
 <template>
   <div>
     <div>
-      <header>This is my header</header>
+      <header>
+        <h1>Dashboard</h1>
+        <p>All information about your current finances.</p>
+      </header>
       <main>
-        This is my main
-        <section></section>
+        <div>Tabs : Today , week , Month , Year</div>
+        <section>Chart</section>
       </main>
-      <footer>This is my footer</footer>
+      <footer>I'll have 3 different cards</footer>
     </div>
   </div>
 </template>
