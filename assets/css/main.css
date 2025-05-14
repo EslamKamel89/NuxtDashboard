@@ -124,6 +124,6 @@
     @apply text-2xl font-bold;
   }
   p {
-    @apply text-neutral-500;
+    @apply m-0 text-neutral-500;
   }
 }
