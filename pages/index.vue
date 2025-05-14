@@ -1,4 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <div></div>
+  <div>
+    <Button>Click me</Button>
+  </div>
 </template>

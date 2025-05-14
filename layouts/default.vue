@@ -1,6 +1,9 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="bg-blue-100 w-screen h-screen">
-    <slot />
+  <div class="flex h-screen w-screen items-start">
+    <div class="">Sidebar</div>
+    <main>
+      <slot />
+    </main>
   </div>
 </template>
