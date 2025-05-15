@@ -4,6 +4,8 @@ import Month from "~/components/Home/Tabs/Month.vue";
 import Today from "~/components/Home/Tabs/Today.vue";
 import Week from "~/components/Home/Tabs/Week.vue";
 import Year from "~/components/Home/Tabs/Year.vue";
+import type { ChartBarType } from "~/components/Shared/Chart/Bar.vue";
+import type { ChartLineType } from "~/components/Shared/Chart/Line.vue";
 type ListType = {
   title: string;
   value: string;
@@ -15,6 +17,29 @@ const tabs: ListType[] = [
   { title: "This Month", value: "month", component: Month },
   { title: "This Year", value: "year", component: Year },
 ];
+const chartBarData: ChartBarType[] = [
+  { label: "January", value: 40 },
+  { label: "February", value: 20 },
+  { label: "March", value: 12 },
+  { label: "April", value: 39 },
+  { label: "May", value: 10 },
+  { label: "June", value: 40 },
+  { label: "July", value: 39 },
+  { label: "August", value: 80 },
+  { label: "September", value: 40 },
+  { label: "October", value: 20 },
+  { label: "November", value: 12 },
+  { label: "December", value: 11 },
+];
+const chartLineData: ChartLineType[] = [
+  { label: "January", value: 40 },
+  { label: "February", value: 39 },
+  { label: "March", value: 10 },
+  { label: "April", value: 40 },
+  { label: "May", value: 39 },
+  { label: "June", value: 80 },
+  { label: "July", value: 40 },
+];
 </script>
 <template>
   <div class="grid h-screen gap-8">
@@ -24,8 +49,13 @@ const tabs: ListType[] = [
         <h1>Dashboard</h1>
       </div>
       <div class="h-[36px] w-[120px] bg-neutral-200"></div>
-      <SharedChart />
     </header>
+    <div>
+      <SharedChartBar :dataset="chartBarData" />
+      <div class="h-[400px]">
+        <SharedChartLine :dataset="chartLineData" />
+      </div>
+    </div>
     <main class="grid gap-2">
       <div class="flex items-center gap-3">
         <div

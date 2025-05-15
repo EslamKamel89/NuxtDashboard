@@ -17,26 +17,20 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
+export type ChartBarType = {
+  label: string;
+  value: number;
+};
+const props = defineProps<{
+  dataset: ChartBarType[];
+}>();
 const data = {
-  labels: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
+  labels: props.dataset.map((data) => data.label),
   datasets: [
     {
       label: "Data One",
       backgroundColor: "#f87979",
-      data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+      data: props.dataset.map((data) => data.value),
     },
   ],
 };
