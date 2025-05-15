@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Month from "~/components/Home/Tabs/Month.vue";
+import Today from "~/components/Home/Tabs/Today.vue";
+import Week from "~/components/Home/Tabs/Week.vue";
+import Year from "~/components/Home/Tabs/Year.vue";
 type ListType = {
   title: string;
   value: string;
-  component: string;
+  component: typeof Today | typeof Week | typeof Month | typeof Year;
 };
 const tabs: ListType[] = [
-  { title: "Today", value: "today", component: "<div>Today</div>" },
-  { title: "This Week", value: "week", component: "<div>Week</div>" },
-  { title: "This Month", value: "month", component: "<div>Month</div>" },
-  { title: "This Year", value: "year", component: "<div>Year</div>" },
+  { title: "Today", value: "today", component: Today },
+  { title: "This Week", value: "week", component: Week },
+  { title: "This Month", value: "month", component: Month },
+  { title: "This Year", value: "year", component: Year },
 ];
 </script>
 <template>
@@ -33,7 +37,7 @@ const tabs: ListType[] = [
         <div class="h-[360px] w-full bg-neutral-200"></div>
       </section>
 
-      <Tabs default-value="day" class="w-full">
+      <Tabs :default-value="tabs[0].value" class="w-full">
         <TabsList class="flex items-center gap-3">
           <TabsTrigger
             v-for="tab in tabs"
@@ -43,9 +47,9 @@ const tabs: ListType[] = [
             >{{ tab.title }}</TabsTrigger
           >
         </TabsList>
-        <TabsContent v-for="tab in tabs" :key="tab.value" :value="tab.value">{{
-          tab.component
-        }}</TabsContent>
+        <TabsContent v-for="tab in tabs" :key="tab.value" :value="tab.value">
+          <component :is="tab.component" />
+        </TabsContent>
       </Tabs>
     </main>
     <footer>
