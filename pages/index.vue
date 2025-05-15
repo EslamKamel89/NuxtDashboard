@@ -57,17 +57,6 @@ const chartLineData: ChartLineType[] = [
       </div>
     </div>
     <main class="grid gap-2">
-      <div class="flex items-center gap-3">
-        <div
-          v-for="item in 3"
-          :key="item"
-          class="h-[36px] w-[120px] bg-neutral-200"
-        ></div>
-      </div>
-      <section>
-        <div class="h-[360px] w-full bg-neutral-200"></div>
-      </section>
-
       <Tabs :default-value="tabs[0].value" class="w-full">
         <TabsList class="flex items-center gap-3">
           <TabsTrigger
