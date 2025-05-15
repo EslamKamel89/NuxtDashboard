@@ -24,6 +24,7 @@ const tabs: ListType[] = [
         <h1>Dashboard</h1>
       </div>
       <div class="h-[36px] w-[120px] bg-neutral-200"></div>
+      <SharedChart />
     </header>
     <main class="grid gap-2">
       <div class="flex items-center gap-3">

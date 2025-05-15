@@ -15,4 +15,9 @@ export default defineNuxtConfig({
     prefix: "",
     componentDir: "./components/ui",
   },
+  // vue: {
+  //   compilerOptions: {
+  //     isCustomElement: (tag) => tag === "apexcharts",
+  //   },
+  // },
 });
