@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+type ListType = {
+  title: string;
+  value: string;
+  component: string;
+};
+const tabs: ListType[] = [
+  { title: "Today", value: "today", component: "<div>Today</div>" },
+  { title: "This Week", value: "week", component: "<div>Week</div>" },
+  { title: "This Month", value: "month", component: "<div>Month</div>" },
+  { title: "This Year", value: "year", component: "<div>Year</div>" },
+];
 </script>
 <template>
   <div class="grid h-screen gap-8">
@@ -24,35 +35,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
       <Tabs default-value="day" class="w-full">
         <TabsList class="flex items-center gap-3">
-          <TabsTrigger class="px-7" value="day"> Day </TabsTrigger>
-          <TabsTrigger class="px-7" value="week"> Week </TabsTrigger>
-          <TabsTrigger class="px-7" value="month"> Month </TabsTrigger>
-          <TabsTrigger class="px-7" value="year"> Year </TabsTrigger>
+          <TabsTrigger
+            v-for="tab in tabs"
+            :key="tab.value"
+            :value="tab.value"
+            class="px-7"
+            >{{ tab.title }}</TabsTrigger
+          >
         </TabsList>
-        <TabsContent value="day">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          facilis velit optio temporibus officia reiciendis nam laboriosam harum
-          autem sed cumque quo alias vitae, corrupti non modi inventore delectus
-          molestiae!
-        </TabsContent>
-        <TabsContent value="week">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          facilis velit optio temporibus officia reiciendis nam laboriosam harum
-          autem sed cumque quo alias vitae, corrupti non modi inventore delectus
-          molestiae!</TabsContent
-        >
-        <TabsContent value="month">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          facilis velit optio temporibus officia reiciendis nam laboriosam harum
-          autem sed cumque quo alias vitae, corrupti non modi inventore delectus
-          molestiae!
-        </TabsContent>
-        <TabsContent value="year">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          facilis velit optio temporibus officia reiciendis nam laboriosam harum
-          autem sed cumque quo alias vitae, corrupti non modi inventore delectus
-          molestiae!</TabsContent
-        >
+        <TabsContent v-for="tab in tabs" :key="tab.value" :value="tab.value">{{
+          tab.component
+        }}</TabsContent>
       </Tabs>
     </main>
     <footer>
