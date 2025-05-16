@@ -1,5 +1,7 @@
 <template>
-  <Line :data="data" :options="options" />
+  <div class="mx-auto w-sm md:w-full">
+    <Line :data="data" :options="options" />
+  </div>
 </template>
 
 <script lang="ts" setup>

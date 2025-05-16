@@ -41,7 +41,7 @@ const options = {
 };
 </script>
 <template>
-  <div>
+  <div class="mx-auto w-sm md:w-full">
     <Bar :data="data" :options="options" />
   </div>
 </template>

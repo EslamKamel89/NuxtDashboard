@@ -67,6 +67,14 @@ const cardsData: CardType[] = [
     description: "Payouts of this week",
     icon: "tabler:zoom-money",
   },
+  {
+    title: "Total Profit",
+    progression: 18,
+    amount: 150.44,
+    label: "View Total Profit",
+    description: "Total Profit since the beginning of the year",
+    icon: "lucide:dollar-sign",
+  },
 ];
 </script>
 <template>
@@ -78,20 +86,15 @@ const cardsData: CardType[] = [
       </div>
       <div class="h-[36px] w-[120px] bg-neutral-200"></div>
     </header>
-    <div>
-      <SharedChartBar :dataset="chartBarData" />
-      <div class="h-[400px]">
-        <SharedChartLine :dataset="chartLineData" />
-      </div>
-    </div>
-    <main class="grid gap-2">
+
+    <main class="grid w-full gap-2">
       <Tabs :default-value="tabs[0].value" class="w-full">
         <TabsList class="flex items-center gap-3">
           <TabsTrigger
             v-for="tab in tabs"
             :key="tab.value"
             :value="tab.value"
-            class="px-7"
+            class="px-2 md:px-4 lg:px-7"
             >{{ tab.title }}</TabsTrigger
           >
         </TabsList>
@@ -100,13 +103,11 @@ const cardsData: CardType[] = [
         </TabsContent>
       </Tabs>
     </main>
-    <footer>
-      <div class="flex flex-col items-center gap-4 lg:flex-row">
-        <div
-          v-for="item in 3"
-          :key="item"
-          class="h-[260px] w-full bg-neutral-200"
-        ></div>
+    <footer class="w-full">
+      <div
+        class="flex w-full flex-col items-center space-y-2 md:grid md:grid-cols-2 md:gap-2 md:space-y-0"
+      >
+        <SharedCard v-for="card in cardsData" :key="card.label" :card="card" />
       </div>
     </footer>
   </div>
