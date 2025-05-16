@@ -4,6 +4,7 @@ import Month from "~/components/Home/Tabs/Month.vue";
 import Today from "~/components/Home/Tabs/Today.vue";
 import Week from "~/components/Home/Tabs/Week.vue";
 import Year from "~/components/Home/Tabs/Year.vue";
+import type { CardType } from "~/components/Shared/Card.vue";
 import type { ChartBarType } from "~/components/Shared/Chart/Bar.vue";
 import type { ChartLineType } from "~/components/Shared/Chart/Line.vue";
 type ListType = {
@@ -39,6 +40,33 @@ const chartLineData: ChartLineType[] = [
   { label: "May", value: 39 },
   { label: "June", value: 80 },
   { label: "July", value: 40 },
+];
+
+const cardsData: CardType[] = [
+  {
+    title: "Sales",
+    progression: 12,
+    amount: 1244.44,
+    label: "View Sales",
+    description: "Sales of March 2024",
+    icon: "solar:ticket-sale-outline",
+  },
+  {
+    title: "Refunds",
+    progression: 8,
+    amount: 84.44,
+    label: "View Refunds",
+    description: "Refunds since the beginning of the year",
+    icon: "heroicons-outline:receipt-refund",
+  },
+  {
+    title: "Payouts",
+    progression: 14,
+    amount: 84.44,
+    label: "View Payouts",
+    description: "Payouts of this week",
+    icon: "tabler:zoom-money",
+  },
 ];
 </script>
 <template>
