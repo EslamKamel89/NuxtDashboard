@@ -27,7 +27,15 @@ const open = ref(false);
       class="hidden h-screen w-[250px] justify-between border-r lg:flex lg:flex-col"
     >
       <SidebarMenu />
-      <div>User Item</div>
+      <SharedUserItem
+        :user="{
+          name: 'Eslam Kamel',
+          email: 'admin@gmail.com',
+          avatar:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ6uvCo3_xWIdF5zMsYWaqGSEZZutVwY76fjlIhSmltuK1KDYc8lgyv3qQme86udTw9kQ&usqp=CAU',
+          info: 'Developer',
+        }"
+      />
     </div>
   </div>
 </template>

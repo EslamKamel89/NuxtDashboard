@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/icon": "^1.12.0",
     "@tailwindcss/vite": "^4.1.6",
+    "@tanstack/vue-table": "^8.21.3",
     "@vueuse/core": "^13.2.0",
     "apexcharts": "^4.7.0",
     "chart.js": "^4.4.9",
