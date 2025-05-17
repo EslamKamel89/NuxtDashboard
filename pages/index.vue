@@ -84,7 +84,14 @@ const cardsData: CardType[] = [
         <p>Hey Welcome back Eslam</p>
         <h1>Dashboard</h1>
       </div>
-      <div class="h-[36px] w-[120px] bg-neutral-200"></div>
+      <div class="flex flex-col space-y-1">
+        <ProductNew />
+        <SharedAlertYesOrNo
+          @ok="pr('ok is called')"
+          @cancel="pr('canceled is called')"
+          ><Button variant="destructive">Warning</Button></SharedAlertYesOrNo
+        >
+      </div>
     </header>
 
     <main class="grid w-full gap-2">
