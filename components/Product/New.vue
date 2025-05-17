@@ -19,6 +19,7 @@ const createNewProduct = () => {
   } catch (error) {
   } finally {
     loading.value = false;
+    open.value = false;
   }
 };
 </script>
@@ -29,7 +30,12 @@ const createNewProduct = () => {
       <Button variant="outline"> + Product </Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
-      <AlertDialogHeader>content </AlertDialogHeader>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Create New Product</AlertDialogTitle>
+        <div>
+          <Input placeholder="Enter Product Name" />
+        </div>
+      </AlertDialogHeader>
       <AlertDialogFooter>
         <AlertDialogCancel>Cancel</AlertDialogCancel>
         <AlertDialogAction @click="createNewProduct">Create</AlertDialogAction>
