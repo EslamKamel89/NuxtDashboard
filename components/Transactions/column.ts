@@ -1,8 +1,7 @@
-import { Badge } from "#components";
+import { Badge, TransactionsDataTableDropdown } from "#components";
 import type { ColumnDef } from "@tanstack/vue-table";
 import { h } from "vue";
 import type { StatusType, Transaction } from "./data";
-
 export const transactionCols: ColumnDef<Transaction>[] = [
   {
     accessorKey: "email",
@@ -38,6 +37,21 @@ export const transactionCols: ColumnDef<Transaction>[] = [
       }).format(amount);
 
       return h("div", { class: "text-start font-medium" }, formatted);
+    },
+  },
+  {
+    id: "actions",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const transaction = row.original;
+
+      return h(
+        "div",
+        { class: "relative" },
+        h(TransactionsDataTableDropdown, {
+          transaction: transaction,
+        }),
+      );
     },
   },
 ];
