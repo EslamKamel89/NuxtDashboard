@@ -1,11 +1,25 @@
-import { Badge, TransactionsDataTableDropdown } from "#components";
+import { Badge, Button, TransactionsDataTableDropdown } from "#components";
 import type { ColumnDef } from "@tanstack/vue-table";
+import { ArrowUpDown } from "lucide-vue-next";
 import { h } from "vue";
 import type { StatusType, Transaction } from "./data";
 export const transactionCols: ColumnDef<Transaction>[] = [
   {
     accessorKey: "email",
-    header: () => h("div", { class: "text-right" }, "Email"),
+    // header: () => h("div", { class: "text-right" }, "Email"),
+    header: ({ column }) => {
+      return h(
+        Button,
+        {
+          variant: "ghost",
+          onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+        },
+        () => [
+          h("div", { class: "text-right" }, "Email"),
+          h(ArrowUpDown, { class: "ml-2 h-4 w-4" }),
+        ],
+      );
+    },
     cell: ({ row }) => {
       return h(
         "div",
@@ -16,7 +30,20 @@ export const transactionCols: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "status",
-    header: () => h("div", { class: "text-right" }, "Status"),
+    // header: () => h("div", { class: "text-right" }, "Status"),
+    header: ({ column }) => {
+      return h(
+        Button,
+        {
+          variant: "ghost",
+          onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+        },
+        () => [
+          h("div", { class: "text-right" }, "Status"),
+          h(ArrowUpDown, { class: "ml-2 h-4 w-4" }),
+        ],
+      );
+    },
     cell: ({ row }) => {
       const value = row.getValue("status") as StatusType;
       return h(
@@ -28,7 +55,20 @@ export const transactionCols: ColumnDef<Transaction>[] = [
   },
   {
     accessorKey: "amount",
-    header: () => h("div", { class: "text-right" }, "Amount"),
+    // header: () => h("div", { class: "text-right" }, "Amount"),
+    header: ({ column }) => {
+      return h(
+        Button,
+        {
+          variant: "ghost",
+          onClick: () => column.toggleSorting(column.getIsSorted() === "asc"),
+        },
+        () => [
+          h("div", { class: "text-right" }, "Amount"),
+          h(ArrowUpDown, { class: "ml-2 h-4 w-4" }),
+        ],
+      );
+    },
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue("amount"));
       const formatted = new Intl.NumberFormat("en-US", {
@@ -42,6 +82,7 @@ export const transactionCols: ColumnDef<Transaction>[] = [
   {
     id: "actions",
     enableHiding: false,
+
     cell: ({ row }) => {
       const transaction = row.original;
 
